@@ -1,0 +1,5 @@
+{
+  "load_extensions": {
+    "gofer_submit/index": true
+  }
+}
