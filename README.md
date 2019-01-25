@@ -8,9 +8,7 @@ However, for a Gofer service hosted externally, you will need to modify `gofer_s
 
 # Installation
 
-Installing this package from pip should automatically install and enable the extension by default (following: https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Distributing%20Jupyter%20Extensions%20as%20Python%20Packages.html#Defining-the-server-extension-and-nbextension).
-
-TODO upload to pypi to test whether pip install actually installs/enables properly
+Installing this package from pip (or equivalently python setup.py) should automatically install and enable the extension by default (following: https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Distributing%20Jupyter%20Extensions%20as%20Python%20Packages.html#Defining-the-server-extension-and-nbextension).
 
 If you would like to have it installed but not enabled, simply run
 

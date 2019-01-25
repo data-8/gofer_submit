@@ -2,7 +2,11 @@ import setuptools
 
 setuptools.setup(
     name="gofer_submit",
-    # TODO: Figure out anything else that needs to go here
+    description="python package for nbextension to be used with Gofer Grader",
+    version='0.1',
+    author="V. Su",
+    author_email="vipasu@berkeley.edu",
+    url="https://github.com/data-8/gofer_submit",
     include_package_data=True,
     data_files=[
         # like `jupyter nbextension install --sys-prefix`
@@ -14,6 +18,5 @@ setuptools.setup(
             "jupyter-config/nbconfig/notebook.d/gofer_submit.json"
         ])
     ],
-    # TODO: Figure out anything else that needs to go here
     zip_safe=False
 )
