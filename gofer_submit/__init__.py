@@ -3,4 +3,4 @@ def _jupyter_nbextension_paths():
         section="notebook",
         src="static",
         dest="gofer_submit",
-        require="gofer_submit/index")]
+        require="gofer_submit/static/index")]
