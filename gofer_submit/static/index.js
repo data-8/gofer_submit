@@ -38,6 +38,10 @@ define([
         var action_name = 'submit';
 
         var full_action_name = Jupyter.actions.register(action, action_name, prefix); // returns 'Gofer:submit'
+
+        var si = 5;
+        var set_si = function(x){};
+
         // Jupyter.toolbar.add_buttons_group([full_action_name]);
         Jupyter.toolbar.add_buttons_group([
             {
@@ -45,6 +49,26 @@ define([
                 'icon' : 'fa-check',
                 'callback': handler
             }]);
+
+
+
+        var select = $('<select class="ui-widget-content"/>');
+        select.change(function() {
+             var course = $(this).val();
+             Jupyter.notebook.metadata["course"] = course;
+        });
+
+        var courses = ["8x", "8x-audit", "SJCC"];
+
+        for (var i in courses) {
+            select.append($('<option/>').attr('value', courses[i]).text(courses[i]));
+        }
+
+        select.val("8x");
+
+        IPython.toolbar.element.append(
+            $('<label class="navbar-text"/>').text('Select Course (Don\'t change unless told too):')
+        ).append(select);
 
     }
 
