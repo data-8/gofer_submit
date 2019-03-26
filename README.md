@@ -19,4 +19,5 @@ If you would like to have it installed but not enabled, simply run
 To build the extension and enable it,
 
 `cd gofer_submit`
+
 `jupyter nbextension install --sys-prefix static | jupyter nbextension enable --sys-prefix static/index`
