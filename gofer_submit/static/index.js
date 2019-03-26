@@ -39,10 +39,6 @@ define([
 
         var full_action_name = Jupyter.actions.register(action, action_name, prefix); // returns 'Gofer:submit'
 
-        var si = 5;
-        var set_si = function(x){};
-
-        // Jupyter.toolbar.add_buttons_group([full_action_name]);
         Jupyter.toolbar.add_buttons_group([
             {
                 'label' : 'Submit',
@@ -61,12 +57,10 @@ define([
              Jupyter.notebook.save_notebook();
         });
 
-
         var courses = ["8x", "8x-audit", "SJCC"];
 
         for (var i in courses) {
             select.append($('<option/>').attr('value', courses[i]).text(courses[i]));
-
         }
 
         select.val("8x");
@@ -76,7 +70,6 @@ define([
             select.append($('<option/>').attr('value', existing).text(existing));
           }
           select.val(existing);
-
         }
 
         IPython.toolbar.element.append(
