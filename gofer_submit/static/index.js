@@ -73,7 +73,7 @@ define([
         }
 
         IPython.toolbar.element.append(
-            $('<label class="navbar-text"/>').text('Select Course (Don\'t change unless told too):')
+            $('<label class="navbar-text"/>').text('Select Course (Don\'t change unless told to):')
         ).append(select);
 
     }
