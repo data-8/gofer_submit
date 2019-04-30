@@ -3,9 +3,9 @@ import setuptools
 setuptools.setup(
     name="gofer_submit",
     description="python package for nbextension to be used with Gofer Grader",
-    version='0.1',
+    version='0.2',
     author="V. Su",
-    author_email="vipasu@berkeley.edu",
+    author_email="yanayrosen@berkeley.edu",
     url="https://github.com/data-8/gofer_submit",
     include_package_data=True,
     data_files=[
