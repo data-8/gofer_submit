@@ -38,13 +38,43 @@ define([
         var action_name = 'submit';
 
         var full_action_name = Jupyter.actions.register(action, action_name, prefix); // returns 'Gofer:submit'
-        // Jupyter.toolbar.add_buttons_group([full_action_name]);
+
         Jupyter.toolbar.add_buttons_group([
             {
                 'label' : 'Submit',
                 'icon' : 'fa-check',
                 'callback': handler
             }]);
+
+
+        var existing = Jupyter.notebook.metadata["course"];
+
+
+        var select = $('<select class="ui-widget-content"/>');
+        select.change(function() {
+             var course = $(this).val();
+             Jupyter.notebook.metadata["course"] = course;
+             Jupyter.notebook.save_notebook();
+        });
+
+        var courses = ["8x", "8x-audit", "SJCC"];
+
+        for (var i in courses) {
+            select.append($('<option/>').attr('value', courses[i]).text(courses[i]));
+        }
+
+        select.val("8x");
+
+        if (existing) {
+          if (!courses.includes(existing)) {
+            select.append($('<option/>').attr('value', existing).text(existing));
+          }
+          select.val(existing);
+        }
+
+        IPython.toolbar.element.append(
+            $('<label class="navbar-text"/>').text('Select Course (Don\'t change unless told to):')
+        ).append(select);
 
     }
 

@@ -2,7 +2,9 @@
 
 This repo contains the code for a Jupyter notebook extension that sends the JSON of a .ipynb file as an HTML POST request.
 
-Currently the repo assumes that you are running gofer_service (todo: insert link here to new repo) as a service of your jupyterhub.
+The extension also includes a dropdown menu for course selection, which will modify the metadata course tag to support multiple courses on one hub.
+
+Currently the repo assumes that you are running [gofer_service](https://github.com/data-8/gofer_service) as a service of your jupyterhub.
 
 However, for a Gofer service hosted externally, you will need to modify `gofer_submit/static/index.js` to send to the correct end point.
 
@@ -14,6 +16,8 @@ If you would like to have it installed but not enabled, simply run
 
 `jupyter nbextension disable --py gofer_submit --sys-prefix`
 
-# Customization
+To build the extension and enable it,
 
-TODO figure how to modify the grading url without requiring changes to this repo.
+`cd gofer_submit`
+
+`jupyter nbextension install --sys-prefix static | jupyter nbextension enable --sys-prefix static/index`
