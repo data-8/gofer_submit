@@ -9,9 +9,11 @@ define([
     Jupyter
 ) {
     function load_ipython_extension() {
-
+        var can_submit = true
+        var last_submit = Date.now()
         var handler = function () {
             var nb = Jupyter.notebook.toJSON(); // get the ipynb file
+
             // TODO:  strip the output to send less data
             payload = JSON.stringify({'nb': nb});
             otherParam = {
@@ -20,11 +22,27 @@ define([
                 method: "POST"
             };
 
-            fetch(grading_url, otherParam)
-                // processes the response (in this case grabs text)
-                .then(response=>{return response.text()})
-                // processes the output of previous line (calling it data, then doing something with it)
-                .then(data=>{console.log( data); alert(data)});
+
+            if (!can_submit) {
+              var time_left = (Date.now() - last_submit) - 60000;
+              if (time_left >= 0) {
+                can_submit = true;
+              } else {
+                alert("Please wait " + (-1 * time_left / 1000).toString() + " more seconds before submitting.")
+              }
+            }
+
+            if (can_submit) {
+              can_submit = false
+              last_submit = Date.now()
+              fetch(grading_url, otherParam)
+                  // processes the response (in this case grabs text)
+                  .then(response=>{return response.text()})
+                  // processes the output of previous line (calling it data, then doing something with it)
+                  .then(data=>{console.log( data); alert(data)});
+
+            }
+
         };
 
         var action = {
