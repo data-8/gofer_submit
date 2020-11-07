@@ -57,7 +57,7 @@ define([
              Jupyter.notebook.save_notebook();
         });
 
-        var courses = ["8x", "8x-audit", "SJCC"];
+        var courses = ["8x", "SJCC"];
 
         for (var i in courses) {
             select.append($('<option/>').attr('value', courses[i]).text(courses[i]));
