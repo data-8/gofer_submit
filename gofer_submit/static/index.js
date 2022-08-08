@@ -45,36 +45,35 @@ define([
                 'icon' : 'fa-check',
                 'callback': handler
             }]);
+        // 8/8/2022: REMOVED DROP DOWN -- no longer supporting multiple courses
+        // var existing = Jupyter.notebook.metadata["course"];
 
 
-        var existing = Jupyter.notebook.metadata["course"];
+        // var select = $('<select class="ui-widget-content"/>');
+        // select.change(function() {
+        //      var course = $(this).val();
+        //      Jupyter.notebook.metadata["course"] = course;
+        //      Jupyter.notebook.save_notebook();
+        // });
 
+        // var courses = ["8x", "SJCC"];
 
-        var select = $('<select class="ui-widget-content"/>');
-        select.change(function() {
-             var course = $(this).val();
-             Jupyter.notebook.metadata["course"] = course;
-             Jupyter.notebook.save_notebook();
-        });
+        // for (var i in courses) {
+        //     select.append($('<option/>').attr('value', courses[i]).text(courses[i]));
+        // }
 
-        var courses = ["8x", "SJCC"];
+        // select.val("8x");
 
-        for (var i in courses) {
-            select.append($('<option/>').attr('value', courses[i]).text(courses[i]));
-        }
+        // if (existing) {
+        //   if (!courses.includes(existing)) {
+        //     select.append($('<option/>').attr('value', existing).text(existing));
+        //   }
+        //   select.val(existing);
+        // }
 
-        select.val("8x");
-
-        if (existing) {
-          if (!courses.includes(existing)) {
-            select.append($('<option/>').attr('value', existing).text(existing));
-          }
-          select.val(existing);
-        }
-
-        IPython.toolbar.element.append(
-            $('<label class="navbar-text"/>').text('Select Course (Don\'t change unless told to):')
-        ).append(select);
+        // IPython.toolbar.element.append(
+        //     $('<label class="navbar-text"/>').text('Select Course (Don\'t change unless told to):')
+        // ).append(select);
 
     }
 
